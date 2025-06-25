@@ -14,8 +14,10 @@ import {
   Ionicons,
   Entypo,
 } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
 
 export default function HomeScreen() {
+  const router = useRouter();
   const services = [
     {
       icon: <FontAwesome5 name="brain" size={24} color="#007AFF" />,
@@ -63,9 +65,15 @@ export default function HomeScreen() {
         Complete Care for Every Neurological Need.
       </Text>
 
-      <TouchableOpacity
+      {/* <TouchableOpacity
         style={styles.button}
         onPress={() => Linking.openURL("tel:8639994290")}
+      >
+        <Text style={styles.buttonText}>Book An Appointment</Text>
+      </TouchableOpacity> */}
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => router.push("/appointments")}
       >
         <Text style={styles.buttonText}>Book An Appointment</Text>
       </TouchableOpacity>
@@ -75,7 +83,10 @@ export default function HomeScreen() {
         <Text style={styles.text}>
           Meet Dr. Sai Kiran for Specialized Neurological Care
         </Text>
-        <TouchableOpacity>
+        {/* <TouchableOpacity>
+          <Text style={styles.link}>Our Doctor's Profile &gt;</Text>
+        </TouchableOpacity> */}
+        <TouchableOpacity onPress={() => router.push("/doctors")}>
           <Text style={styles.link}>Our Doctor's Profile &gt;</Text>
         </TouchableOpacity>
       </View>
@@ -83,8 +94,7 @@ export default function HomeScreen() {
       <View style={styles.section}>
         <Text style={styles.title}>Our Location</Text>
         <Text style={styles.text}>
-          SUNRISE HOSPITAL, 2/785, BESIDES, Maria Puram, Nagarajupeta, Kadapa,
-          Andhra Pradesh 516001
+          2/785, Beside Sunshine Hospitals, Nagarajupeta, Kadapa, AP, 516001.
         </Text>
         <TouchableOpacity>
           <Text style={styles.link}>Directions and Parking &gt;</Text>

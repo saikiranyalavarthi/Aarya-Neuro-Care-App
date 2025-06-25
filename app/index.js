@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, ActivityIndicator, StyleSheet } from "react-native";
+import { View, Text, ActivityIndicator, StyleSheet, Image } from "react-native";
 import { Redirect } from "expo-router";
 
 export default function App() {
@@ -13,8 +13,12 @@ export default function App() {
   if (loading) {
     return (
       <View style={styles.container}>
+        <Image
+          source={require("../assets/images/Aarya.png")}
+          style={styles.logo}
+        />
         <Text style={styles.title}>Aarya Neuro Care</Text>
-        <ActivityIndicator size="large" color="#007AFF" />
+        {/* <ActivityIndicator size="large" color="#007AFF" /> */}
       </View>
     );
   }
@@ -27,14 +31,19 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#f0f8ff", // light bluish-white
+    backgroundColor: "#f0f8ff",
     padding: 20,
+  },
+  logo: {
+    width: 150,
+    height: 150,
+    resizeMode: "contain",
+    marginBottom: 20,
   },
   title: {
     fontSize: 28,
     fontWeight: "bold",
-    color: "#007AFF", // iOS blue
-    marginBottom: 20,
+    color: "#007AFF",
     textAlign: "center",
     letterSpacing: 1,
   },
